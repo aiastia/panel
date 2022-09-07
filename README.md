@@ -5,11 +5,11 @@ docker创建网络
 启动mysql容器
 
 - mkdir /data
-- docker run -d -it --network cdntip_network -v /data/mysql:/var/lib/mysql --name panel_mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=panel mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+- docker run -d -it --restart always --network cdntip_network -v /data/mysql:/var/lib/mysql --name panel_mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=panel mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
 启动 cloudpanel 
 
-- docker run -d -it --network cdntip_network -p 8111:80 --name panel cdntip/panel
+- docker run -d -it --restart always  --network cdntip_network -p 8111:80 --name panel cdntip/panel
 
 进入容器
 
